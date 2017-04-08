@@ -1,5 +1,7 @@
 # Slacked
 
+[![Build Status](https://travis-ci.org/desirable-objects/slacked.svg?branch=master)](https://travis-ci.org/desirable-objects/slacked)
+
 A slack app for making adding new slash commands to slack easy.
 
 Example is in `packages/demo`
@@ -32,7 +34,6 @@ export SLACK_TOKEN=xxxx
 Configure the app in your slack instance:
 
 ![adding](https://cloud.githubusercontent.com/assets/218949/24829797/8aca909a-1c70-11e7-9742-b7bc1c59136b.png)
-
 
 Test!
 
