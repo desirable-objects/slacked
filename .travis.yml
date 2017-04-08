@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "7"
+matrix:
+  fast_finish: true
+cache:
+  directories:
+  - node_modules
+  - packages/**/node_modules
+env:
+  - TEST_DIR=slacked
+  - TEST_DIR=slacked-demo-plugin
+  - TEST_DIR=slacked-deploy-plugin
+  - TEST_DIR=slacked-slack
+script:
+  - lerna bootstrap
+  - lerna run test --scope $TEST_DIR

@@ -1,0 +1,14 @@
+{
+  "name": "slacked-slack",
+  "version": "1.0.0",
+  "description": "Slack utilities for slacked",
+  "main": "index.js",
+  "author": "Antony Jones",
+  "license": "MIT",
+  "scripts": {
+    "test": "../../node_modules/.bin/ava"
+  },
+  "dependencies": {
+    "got": "^6.7.1"
+  }
+}

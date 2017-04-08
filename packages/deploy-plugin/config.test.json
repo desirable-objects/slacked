@@ -1,0 +1,10 @@
+{
+    "deploy": {
+        "environment": {
+            "application": {
+                "image": "some-repo/some-image:some-tag",
+                "serviceId": "your-dockercloud-service-id"
+            }
+        }
+    }
+}

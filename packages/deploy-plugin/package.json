@@ -1,0 +1,14 @@
+{
+  "name": "slacked-deploy-plugin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Antony Jones",
+  "license": "MIT",
+  "scripts": {
+    "test": "../../node_modules/.bin/ava"
+  },
+  "dependencies": {
+    "got": "^6.7.1",
+    "named-regexp": "^0.1.1"
+  }
+}

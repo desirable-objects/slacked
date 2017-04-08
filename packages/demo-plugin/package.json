@@ -1,0 +1,14 @@
+{
+  "name": "slacked-demo-plugin",
+  "version": "1.0.0",
+  "description": "Demo plugin for slacked",
+  "main": "index.js",
+  "author": "Antony Jones",
+  "license": "MIT",
+  "scripts": {
+    "test": "../../node_modules/.bin/ava"
+  },
+  "dependencies": {
+    "named-regexp": "^0.1.1"
+  }
+}
