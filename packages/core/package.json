@@ -1,33 +1,33 @@
 {
-    "name": "slacked",
-    "version": "1.0.0",
-    "description": "Simple pluggable slack app base",
-    "main": "index.js",
-    "bin": {
-        "slacked": "./bin/slacked"
-    },
-    "scripts": {
-        "start": "node index.js ",
-        "lint": "eslint .",
-        "test": "../../node_modules/.bin/ava"
-    },
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-        "got": "^6.7.1",
-        "hapi": "^16.1.0",
-        "joi": "^10.4.1"
-    },
-    "standard": {
-        "globals": [
-            "describe",
-            "it",
-            "sinon",
-            "fail",
-            "before",
-            "after",
-            "nock",
-            "expect"
-        ]
-    }
+  "name": "slacked",
+  "version": "1.0.0",
+  "description": "Simple pluggable slack app base",
+  "main": "index.js",
+  "bin": {
+    "slacked": "./bin/slacked"
+  },
+  "scripts": {
+    "start": "node index.js ",
+    "lint": "eslint .",
+    "test": "../../node_modules/.bin/ava"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^6.7.1",
+    "hapi": "^16.1.0",
+    "joi": "^10.4.1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "sinon",
+      "fail",
+      "before",
+      "after",
+      "nock",
+      "expect"
+    ]
+  }
 }
