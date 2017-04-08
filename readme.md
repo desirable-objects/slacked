@@ -1,6 +1,6 @@
 # Slacked
 
-[![Build Status](https://travis-ci.org/desirable-objects/slacked.svg?branch=master)](https://travis-ci.org/desirable-objects/slacked) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![HapiJS(https://img.shields.io/badge/hapijs-16.1.0-ff69b4.svg)](http://hapijs.com)]
+[![Build Status](https://travis-ci.org/desirable-objects/slacked.svg?branch=master)](https://travis-ci.org/desirable-objects/slacked) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![HapiJS](https://img.shields.io/badge/hapijs-16.1.0-ff69b4.svg)](http://hapijs.com)
 
 A slack app for making adding new slash commands to slack easy.
 
