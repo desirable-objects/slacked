@@ -180,6 +180,10 @@ mimos@3.x.x:
     hoek "4.x.x"
     mime-db "1.x.x"
 
+named-regexp@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/named-regexp/-/named-regexp-0.1.1.tgz#cd9c5383245fa5cbc712a73d669b1e4e2aef590d"
+
 nigel@2.x.x:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/nigel/-/nigel-2.0.2.tgz#93a1866fb0c52d87390aa75e2b161f4b5c75e5b1"
@@ -219,6 +223,12 @@ shot@3.x.x:
   dependencies:
     hoek "4.x.x"
     joi "10.x.x"
+
+slacked-demo-plugin@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/slacked-demo-plugin/-/slacked-demo-plugin-1.0.0.tgz#9e351b2019530f453fa278f1731b6997bf7c0e8e"
+  dependencies:
+    named-regexp "^0.1.1"
 
 slacked-slack@^1.0.0:
   version "1.0.0"

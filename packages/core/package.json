@@ -30,5 +30,8 @@
       "nock",
       "expect"
     ]
+  },
+  "devDependencies": {
+    "slacked-demo-plugin": "^1.0.0"
   }
 }

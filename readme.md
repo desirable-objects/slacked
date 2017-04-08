@@ -29,7 +29,10 @@ Set your slack token in your environment:
 export SLACK_TOKEN=xxxx
 ```
 
-Configure the app in your slack instance.
+Configure the app in your slack instance:
+
+![adding](https://cloud.githubusercontent.com/assets/218949/24829797/8aca909a-1c70-11e7-9742-b7bc1c59136b.png)
+
 
 Test!
 
