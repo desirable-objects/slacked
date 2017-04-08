@@ -64,6 +64,12 @@ safe-buffer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
 
+slacked-slack@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/slacked-slack/-/slacked-slack-1.0.0.tgz#930a2afd4f687d0b88480f2051cfc524ff178af7"
+  dependencies:
+    got "^6.7.1"
+
 timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"

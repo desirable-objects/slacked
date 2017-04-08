@@ -16,7 +16,8 @@
   "dependencies": {
     "got": "^6.7.1",
     "hapi": "^16.1.0",
-    "joi": "^10.4.1"
+    "joi": "^10.4.1",
+    "slacked-slack": "^1.0.0"
   },
   "standard": {
     "globals": [

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "got": "^6.7.1",
-    "named-regexp": "^0.1.1"
+    "named-regexp": "^0.1.1",
+    "slacked-slack": "^1.0.0"
   }
 }

@@ -220,6 +220,12 @@ shot@3.x.x:
     hoek "4.x.x"
     joi "10.x.x"
 
+slacked-slack@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/slacked-slack/-/slacked-slack-1.0.0.tgz#930a2afd4f687d0b88480f2051cfc524ff178af7"
+  dependencies:
+    got "^6.7.1"
+
 statehood@5.x.x:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/statehood/-/statehood-5.0.1.tgz#fc13c97b37751c18e70513d2b97e896ac8b73005"

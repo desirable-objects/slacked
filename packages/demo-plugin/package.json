@@ -9,6 +9,7 @@
     "test": "../../node_modules/.bin/ava"
   },
   "dependencies": {
-    "named-regexp": "^0.1.1"
+    "named-regexp": "^0.1.1",
+    "slacked-slack": "^1.0.0"
   }
 }
