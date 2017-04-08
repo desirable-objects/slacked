@@ -25,10 +25,10 @@ Add some config in `config.json`:
 }
 ```
 
-Set your slack token in your environment:
+When you create your app integration in slack, you will get a token. Set this as an environment variable.
 
 ```bash
-export SLACK_TOKEN=xxxx
+export SLACK_KEY=xxxx
 ```
 
 Configure the app in your slack instance:
