@@ -1,6 +1,6 @@
 {
   "name": "slacked",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple pluggable slack app base",
   "main": "index.js",
   "bin": {
@@ -17,7 +17,7 @@
     "got": "^6.7.1",
     "hapi": "^16.1.0",
     "joi": "^10.4.1",
-    "slacked-slack": "^1.0.0"
+    "slacked-slack": "^1.1.0"
   },
   "standard": {
     "globals": [
@@ -32,6 +32,6 @@
     ]
   },
   "devDependencies": {
-    "slacked-demo-plugin": "^1.0.0"
+    "slacked-demo-plugin": "^1.1.0"
   }
 }

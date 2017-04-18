@@ -1,6 +1,6 @@
 {
   "name": "slacked-demo-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Demo plugin for slacked",
   "main": "index.js",
   "author": "Antony Jones",
@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "named-regexp": "^0.1.1",
-    "slacked-slack": "^1.0.0"
+    "slacked-slack": "^1.1.0"
   }
 }
