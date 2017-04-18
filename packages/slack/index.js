@@ -25,7 +25,7 @@ function sendResponse (url, body) {
       'Content-Type': 'application/json',
       'User-Agent': 'commander/slack'
     },
-    body,
+    body: JSON.stringify(body),
     json: true
   })
 }
