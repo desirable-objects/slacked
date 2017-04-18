@@ -4,9 +4,11 @@ import test from 'ava'
 import { ready } from '../../../app'
 import { stub } from 'sinon'
 import commands from '../../../commands'
+import slack from 'slacked-slack'
 
 test.before(t => {
   stub(commands, 'respond')
+  stub(slack, 'sendEphermalResponse')
 })
 
 test.beforeEach(async t => {
@@ -30,8 +32,7 @@ test('invalid slack token', async t => {
 })
 
 test.serial('calls poll command', async t => {
-  const response = { foo: 'bar' }
-  commands.respond.resolves(response)
+  commands.respond.resolves()
 
   const payload = {
     token: 'no-key-defined',
@@ -46,7 +47,6 @@ test.serial('calls poll command', async t => {
     payload
   })
   t.is(res.statusCode, 200)
-  t.is(res.result, response)
   t.is(commands.respond.callCount, 1)
   t.is(commands.respond.firstCall.args[0], 'poll')
   t.is(commands.respond.firstCall.args[1], payload.user_name)
@@ -71,5 +71,7 @@ test.serial('some error', async t => {
     payload
   })
   t.is(res.statusCode, 200)
-  t.deepEqual(res.result, { text: `Sorry ${payload.user_name}, ${message}` })
+  t.is(slack.sendEphermalResponse.callCount, 1)
+  t.is(slack.sendEphermalResponse.firstCall.args[0], payload.response_url)
+  t.is(slack.sendEphermalResponse.firstCall.args[1], `Sorry ${payload.user_name}, ${message}`)
 })

@@ -29,8 +29,20 @@ function sendResponse (url, body) {
   })
 }
 
+async function sendChannelResponse (url, text, attachments) {
+  const response = buildChannelResponse(text, attachments)
+  await sendResponse(url, response)
+}
+
+async function sendEphermalResponse (url, text, attachments) {
+  const response = buildEphermalResponse(text, attachments)
+  await sendResponse(url, response)
+}
+
 module.exports = {
   sendResponse,
-  buildChannelResponse,
-  buildEphermalResponse
+  sendChannelResponse,
+  sendEphermalResponse,
+  buildEphermalResponse,
+  buildChannelResponse
 }

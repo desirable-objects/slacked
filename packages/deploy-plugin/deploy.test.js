@@ -13,13 +13,19 @@ test.before(t => {
   plugin.setConfig(config)
   stub(dockercloud, 'reconfigure')
   stub(dockercloud, 'redeploy')
-  stub(slack, 'sendResponse')
+  stub(slack, 'sendChannelResponse')
+  stub(slack, 'sendEphermalResponse')
+  dockercloud.reconfigure.resolves({})
+  dockercloud.redeploy.resolves({})
+  slack.sendChannelResponse.resolves({})
+  slack.sendEphermalResponse.resolves({})
 })
 
 test.beforeEach(t => {
-  dockercloud.reconfigure.resolves({})
-  dockercloud.redeploy.resolves({})
-  slack.sendResponse.resolves({})
+  dockercloud.reconfigure.reset()
+  dockercloud.redeploy.reset()
+  slack.sendChannelResponse.reset()
+  slack.sendEphermalResponse.reset()
 })
 
 test('invalid poll request', async t => {
@@ -38,7 +44,6 @@ test('no such application', async t => {
 })
 
 test.serial('successful reconfigure request', async t => {
-  dockercloud.reconfigure.reset()
   await plugin.exec('antony', 'release-v1.1.1 of application on environment', responseUrl)
 
   t.is(dockercloud.reconfigure.callCount, 1)
@@ -47,17 +52,15 @@ test.serial('successful reconfigure request', async t => {
 })
 
 test.serial('successful progress response', async t => {
-  slack.sendResponse.reset()
   await plugin.exec('antony', 'release-v1.1.1 of application on environment', responseUrl)
 
-  t.is(slack.sendResponse.callCount, 1)
-  t.deepEqual(slack.sendResponse.firstCall.args[0], responseUrl)
-  t.deepEqual(slack.sendResponse.firstCall.args[1].text, `No problem!`)
-  t.deepEqual(slack.sendResponse.firstCall.args[1].attachments[0].text, `I'll deploy release-v1.1.1 of application on environment for you, antony.\nGive me a second...`)
+  t.is(slack.sendEphermalResponse.callCount, 1)
+  t.deepEqual(slack.sendEphermalResponse.firstCall.args[0], responseUrl)
+  t.deepEqual(slack.sendEphermalResponse.firstCall.args[1], `No problem!`)
+  t.deepEqual(slack.sendEphermalResponse.firstCall.args[2][0].text, `I'll deploy release-v1.1.1 of application on environment for you, antony.\nGive me a second...`)
 })
 
 test.serial('successful redeploy request', async t => {
-  dockercloud.redeploy.reset()
   await plugin.exec('antony', 'release-v1.1.1 of application on environment', responseUrl)
 
   t.is(dockercloud.redeploy.callCount, 1)
@@ -65,8 +68,9 @@ test.serial('successful redeploy request', async t => {
 })
 
 test('successful redeployment channel message', async t => {
-  const response = await plugin.exec('antony', 'release-v1.1.1 of application on environment', responseUrl)
+  await plugin.exec('antony', 'release-v1.1.1 of application on environment', responseUrl)
 
-  t.is(response.response_type, 'in_channel')
-  t.is(response.text, 'Okay, redeployment is complete.')
+  t.deepEqual(slack.sendChannelResponse.firstCall.args[0], responseUrl)
+  t.is(slack.sendChannelResponse.callCount, 1)
+  t.is(slack.sendChannelResponse.firstCall.args[1], 'Okay, redeployment of application@release-v1.1.1 on environment is complete.')
 })

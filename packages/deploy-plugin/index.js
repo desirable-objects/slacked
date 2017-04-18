@@ -2,7 +2,6 @@
 
 const { named: re } = require('named-regexp')
 const slack = require('slacked-slack')
-const { buildEphermalResponse, buildChannelResponse } = slack
 const dockercloud = require('./dockercloud')
 
 let environments
@@ -41,14 +40,12 @@ exports.command = 'deploy'
 
 exports.exec = async function (who, cmd, responseUrl) {
   const { applicationConfig, environment, application, version } = parse(cmd)
-  await dockercloud.reconfigure(applicationConfig, version)
-
-  const reconfigureMessage = buildEphermalResponse(`No problem!`, [{
+  await slack.sendEphermalResponse(responseUrl, `No problem!`, [{
     text: `I'll deploy ${version} of ${application} on ${environment} for you, ${who}.\nGive me a second...`
   }])
 
-  await slack.sendResponse(responseUrl, reconfigureMessage)
+  await dockercloud.reconfigure(applicationConfig, version)
   await dockercloud.redeploy(applicationConfig)
 
-  return buildChannelResponse('Okay, redeployment is complete.')
+  await slack.sendChannelResponse(responseUrl, `Okay, redeployment of ${application}@${version} on ${environment} is complete.`)
 }

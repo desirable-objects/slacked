@@ -1,7 +1,7 @@
 'use strict'
 
 const Joi = require('joi')
-const { buildEphermalResponse } = require('slacked-slack')
+const { sendEphermalResponse } = require('slacked-slack')
 const commands = require('../../../commands')
 
 const slackToken = process.env.SLACK_KEY || 'no-key-defined'
@@ -28,11 +28,12 @@ module.exports = [{
     const { response_url: responseUrl, user_name: who, text } = request.payload
     const { command } = request.params
 
+    reply()
+
     try {
-      const response = await commands.respond(command, who, responseUrl, text)
-      reply(response)
+      await commands.respond(command, who, responseUrl, text)
     } catch (e) {
-      reply(buildEphermalResponse(`Sorry ${who}, ${e.message}`))
+      await sendEphermalResponse(responseUrl, `Sorry ${who}, ${e.message}`)
     }
   }
 }]
