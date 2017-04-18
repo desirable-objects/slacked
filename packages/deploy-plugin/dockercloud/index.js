@@ -16,8 +16,7 @@ function reconfigure (app, tag) {
     body: JSON.stringify({
       image: `${app.image}:${tag}`
     }),
-    headers: headers,
-    json: true
+    headers: headers
   }
 
   return got(`${apiUrl}/service/${app.serviceId}/`, options)
@@ -26,8 +25,7 @@ function reconfigure (app, tag) {
 function redeploy (app) {
   const options = {
     method: 'post',
-    headers: headers,
-    json: true
+    headers: headers
   }
 
   return got(`${apiUrl}/service/${app.serviceId}/redeploy/`, options)
