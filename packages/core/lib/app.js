@@ -1,6 +1,7 @@
 'use strict'
 
 const Hapi = require('hapi')
+const pluginLoader = require('./plugin-loader')
 
 const ready = async () => {
   const server = new Hapi.Server()
@@ -16,6 +17,7 @@ const start = async () => {
   const server = await ready()
   await server.start()
   console.log(`Slacked running at: ${server.info.uri}`)
+  pluginLoader.load()
   return server
 }
 

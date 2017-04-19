@@ -4,5 +4,8 @@
   "description": "Demo of slacked",
   "main": "slacked",
   "author": "Antony Jones",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node ../packages/core"
+  }
 }
