@@ -34,6 +34,7 @@ module.exports = [{
       await commands.respond(command, who, responseUrl, text)
     } catch (e) {
       await sendEphermalResponse(responseUrl, `Sorry ${who}, ${e.message}`)
+      console.dir(e)
     }
   }
 }]
