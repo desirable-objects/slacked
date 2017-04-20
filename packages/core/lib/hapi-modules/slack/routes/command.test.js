@@ -5,6 +5,7 @@ import { ready } from '../../../app'
 import { stub } from 'sinon'
 import commands from '../../../commands'
 import slack from 'slacked-slack'
+import { join } from 'path'
 
 test.before(t => {
   stub(commands, 'respond')
@@ -12,6 +13,7 @@ test.before(t => {
 })
 
 test.beforeEach(async t => {
+  process.env.CONFIG_FILE = join(__dirname, '..', '..', '..', '..', 'test', 'config.test.json')
   t.context.server = await ready()
 })
 

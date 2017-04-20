@@ -6,6 +6,6 @@ import { load } from '.'
 import demoPlugin from '../../../demo-plugin'
 
 test('#load()', async t => {
-  process.env.CONFIG_FILE = join(__dirname, 'plugin-loader.test.json')
+  process.env.CONFIG_FILE = join(__dirname, '..', '..', 'test', 'config.test.json')
   t.deepEqual(load(), { demo: demoPlugin })
 })
