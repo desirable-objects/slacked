@@ -1,6 +1,6 @@
 {
   "name": "slacked",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Simple pluggable slack app base",
   "main": "index.js",
   "bin": {
