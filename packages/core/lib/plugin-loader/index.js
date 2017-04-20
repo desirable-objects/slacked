@@ -8,7 +8,7 @@ module.exports.load = function () {
   return config.plugins.reduce((curr, pluginName) => {
     const plugin = module.parent.require(pluginName)
     const command = plugin.command
-    plugin.config = configFile[command]
+    plugin.setConfig(config[command])
     curr[command] = plugin
     console.log(`Loaded plugin ${pluginName} as ${command}`)
     return curr
