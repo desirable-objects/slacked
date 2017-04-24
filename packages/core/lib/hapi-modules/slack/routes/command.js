@@ -1,7 +1,7 @@
 'use strict'
 
 const Joi = require('joi')
-const { sendEphermalResponse } = require('slacked-slack')
+const { sendEphermalResponse, buildEphermalResponse } = require('slacked-slack')
 const commands = require('../../../commands')
 
 const slackToken = process.env.SLACK_KEY || 'no-key-defined'
@@ -27,6 +27,12 @@ module.exports = [{
   handler: async (request, reply) => {
     const { response_url: responseUrl, user_name: who, text } = request.payload
     const { command } = request.params
+
+    if (!commands.list().includes(request.params.command)) {
+      const response = buildEphermalResponse(`Sorry ${who}, I don't know anything about the command /${command}`)
+      console.log(response)
+      return reply(response)
+    }
 
     reply()
 
