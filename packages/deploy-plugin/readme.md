@@ -4,7 +4,16 @@ Deploys newly released docker images to a dockercloud hosted environment.
 
 This means you can deploy software to production via slack!
 
-Documentation coming soon, but in a pinch:
+## Configuration as follows:
+
+You need the following environment variables:
+
+```
+DOCKERCLOUD_USERNAME=<your-dockercloud-username>
+DOCKERCLOUD_PASSWORD<=your-dockercloud-api-key>
+```
+
+## Usage from Slack
 
 ```
 /deploy <docker-tag> of <application> on <environment>
