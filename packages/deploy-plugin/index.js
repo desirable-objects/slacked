@@ -40,7 +40,7 @@ exports.command = 'deploy'
 
 exports.exec = async function (who, cmd, responseUrl) {
   const { applicationConfig, environment, application, version } = parse(cmd)
-  await slack.sendEphermalResponse(responseUrl, `No problem!`, [{
+  await slack.sendEphemeralResponse(responseUrl, `No problem!`, [{
     text: `I'll deploy ${version} of ${application} on ${environment} for you, ${who}.\nGive me a second...`
   }])
 

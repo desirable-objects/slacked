@@ -2,7 +2,7 @@
 
 const { named: re } = require('named-regexp')
 const slack = require('slacked-slack')
-const { sendEphermalResponse, sendChannelResponse } = slack
+const { sendEphemeralResponse, sendChannelResponse } = slack
 
 function parse (cmd) {
   const instruction = re(/(:<name>[a-zA-Z ']+)/)
@@ -24,7 +24,7 @@ exports.setConfig = function () { }
 exports.exec = async function (who, cmd, responseUrl) {
   const { name } = parse(cmd)
 
-  await slack.sendEphermalResponse(responseUrl, `Okay`, [{
+  await slack.sendEphemeralResponse(responseUrl, `Okay`, [{
     text: `I'll say hello to ${name} for you, ${who}.`
   }])
   await slack.sendChannelResponse(responseUrl, `Hello, ${name}`)

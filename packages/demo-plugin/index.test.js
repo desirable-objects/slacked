@@ -8,12 +8,12 @@ import slack from 'slacked-slack'
 const responseUrl = 'http://example.net/blah'
 
 test.before(t => {
-  stub(slack, 'sendEphermalResponse').resolves({})
+  stub(slack, 'sendEphemeralResponse').resolves({})
   stub(slack, 'sendChannelResponse').resolves({})
 })
 
 test.beforeEach(t => {
-  slack.sendEphermalResponse.reset()
+  slack.sendEphemeralResponse.reset()
   slack.sendChannelResponse.reset()
 })
 
@@ -25,10 +25,10 @@ test('invalid request', async t => {
 test.serial('successful progress response', async t => {
   await exec('antony', 'simon', responseUrl)
 
-  t.is(slack.sendEphermalResponse.callCount, 1)
-  t.deepEqual(slack.sendEphermalResponse.firstCall.args[0], responseUrl)
-  t.deepEqual(slack.sendEphermalResponse.firstCall.args[1], 'Okay')
-  t.deepEqual(slack.sendEphermalResponse.firstCall.args[2][0].text, `I'll say hello to simon for you, antony.`)
+  t.is(slack.sendEphemeralResponse.callCount, 1)
+  t.deepEqual(slack.sendEphemeralResponse.firstCall.args[0], responseUrl)
+  t.deepEqual(slack.sendEphemeralResponse.firstCall.args[1], 'Okay')
+  t.deepEqual(slack.sendEphemeralResponse.firstCall.args[2][0].text, `I'll say hello to simon for you, antony.`)
 })
 
 test('successful redeployment channel message', async t => {

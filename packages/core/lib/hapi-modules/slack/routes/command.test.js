@@ -11,7 +11,7 @@ test.before(t => {
   process.env.CONFIG_FILE = join(__dirname, '..', '..', '..', '..', 'test', 'config.test.json')
   stub(commands, 'respond')
   stub(commands, 'list')
-  stub(slack, 'sendEphermalResponse')
+  stub(slack, 'sendEphemeralResponse')
 })
 
 test.beforeEach(async t => {
@@ -92,7 +92,7 @@ test.serial('some error', async t => {
     payload
   })
   t.is(res.statusCode, 200)
-  t.is(slack.sendEphermalResponse.callCount, 1)
-  t.is(slack.sendEphermalResponse.firstCall.args[0], payload.response_url)
-  t.is(slack.sendEphermalResponse.firstCall.args[1], `Sorry ${payload.user_name}, ${message}`)
+  t.is(slack.sendEphemeralResponse.callCount, 1)
+  t.is(slack.sendEphemeralResponse.firstCall.args[0], payload.response_url)
+  t.is(slack.sendEphemeralResponse.firstCall.args[1], `Sorry ${payload.user_name}, ${message}`)
 })

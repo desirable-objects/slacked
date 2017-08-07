@@ -5,7 +5,7 @@ import nock from 'nock'
 import { 
   buildEphermalResponse, 
   buildChannelResponse, 
-  sendEphermalResponse, 
+  sendEphemeralResponse, 
   sendChannelResponse 
 } from '.'
 
@@ -20,7 +20,7 @@ function makeUniqueUrl () {
   }
 }
 
-test('#sendEphermalResponse()', async t => {
+test('#sendEphemeralResponse()', async t => {
   const { host, path, url } = makeUniqueUrl()
   nock(host)
   .post(path, {
@@ -28,7 +28,7 @@ test('#sendEphermalResponse()', async t => {
   })
   .reply(200)
 
-  await sendEphermalResponse(url, 'hi')
+  await sendEphemeralResponse(url, 'hi')
 
   t.true(nock.isDone())
 })
@@ -47,7 +47,7 @@ test('#sendChannelResponse()', async t => {
   t.true(nock.isDone())
 })
 
-test('#sendEphermalResponse()', async t => {
+test('#sendEphemeralResponse()', async t => {
   const { host, path, url } = makeUniqueUrl()
   nock(host)
   .post(path, {
@@ -58,7 +58,7 @@ test('#sendEphermalResponse()', async t => {
   })
   .reply(200)
 
-  await sendEphermalResponse(url, 'hi', [{ text: 'hey' }])
+  await sendEphemeralResponse(url, 'hi', [{ text: 'hey' }])
 
   t.true(nock.isDone())
 })

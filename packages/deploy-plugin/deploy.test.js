@@ -14,18 +14,18 @@ test.before(t => {
   stub(dockercloud, 'reconfigure')
   stub(dockercloud, 'redeploy')
   stub(slack, 'sendChannelResponse')
-  stub(slack, 'sendEphermalResponse')
+  stub(slack, 'sendEphemeralResponse')
   dockercloud.reconfigure.resolves({})
   dockercloud.redeploy.resolves({})
   slack.sendChannelResponse.resolves({})
-  slack.sendEphermalResponse.resolves({})
+  slack.sendEphemeralResponse.resolves({})
 })
 
 test.beforeEach(t => {
   dockercloud.reconfigure.reset()
   dockercloud.redeploy.reset()
   slack.sendChannelResponse.reset()
-  slack.sendEphermalResponse.reset()
+  slack.sendEphemeralResponse.reset()
 })
 
 test('invalid poll request', async t => {
@@ -54,10 +54,10 @@ test.serial('successful reconfigure request', async t => {
 test.serial('successful progress response', async t => {
   await plugin.exec('antony', 'release-v1.1.1 of application on environment', responseUrl)
 
-  t.is(slack.sendEphermalResponse.callCount, 1)
-  t.deepEqual(slack.sendEphermalResponse.firstCall.args[0], responseUrl)
-  t.deepEqual(slack.sendEphermalResponse.firstCall.args[1], `No problem!`)
-  t.deepEqual(slack.sendEphermalResponse.firstCall.args[2][0].text, `I'll deploy release-v1.1.1 of application on environment for you, antony.\nGive me a second...`)
+  t.is(slack.sendEphemeralResponse.callCount, 1)
+  t.deepEqual(slack.sendEphemeralResponse.firstCall.args[0], responseUrl)
+  t.deepEqual(slack.sendEphemeralResponse.firstCall.args[1], `No problem!`)
+  t.deepEqual(slack.sendEphemeralResponse.firstCall.args[2][0].text, `I'll deploy release-v1.1.1 of application on environment for you, antony.\nGive me a second...`)
 })
 
 test.serial('successful redeploy request', async t => {

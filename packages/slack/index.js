@@ -34,7 +34,7 @@ async function sendChannelResponse (url, text, attachments) {
   await sendResponse(url, response)
 }
 
-async function sendEphermalResponse (url, text, attachments) {
+async function sendEphemeralResponse (url, text, attachments) {
   const response = buildEphermalResponse(text, attachments)
   await sendResponse(url, response)
 }
@@ -42,7 +42,7 @@ async function sendEphermalResponse (url, text, attachments) {
 module.exports = {
   sendResponse,
   sendChannelResponse,
-  sendEphermalResponse,
+  sendEphemeralResponse,
   buildEphermalResponse,
   buildChannelResponse
 }
