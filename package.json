@@ -1,6 +1,6 @@
 {
     "name": "slacked-monorepo",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Monorepo for slacked",
     "main": "index.js",
     "author": "Antony Jones",
